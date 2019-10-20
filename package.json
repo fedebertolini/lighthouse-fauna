@@ -3,8 +3,12 @@
   "version": "0.0.1",
   "description": "NodeJS application that runs lighthouse against a page and saves the results in FaunaDB",
   "main": "src/index.js",
+  "preferGlobal": true,
   "scripts": {
     "start": "node src/index.js"
+  },
+  "bin": {
+    "lighthouse-fauna": "src/index.js"
   },
   "repository": {
     "type": "git",
