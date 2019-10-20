@@ -32,7 +32,7 @@ const results = [];
         }
 
         const aggregatedResults = aggregate(results);
-        await faunaClient.createMetric(aggregatedResults, 'everyplate-homepage');
+        await faunaClient.createMetric(aggregatedResults, configuration.getPageId());
 
         console.log(aggregatedResults);
     } catch (error) {

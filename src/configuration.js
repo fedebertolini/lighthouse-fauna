@@ -1,6 +1,20 @@
 const argv = require('minimist')(process.argv.slice(2));
 
-exports.getUrl = () => argv._[0] || process.env.URL;
+exports.getUrl = () => {
+    const url = argv._[0] || process.env.URL;
+    if (!url) {
+        throw new Error('Missing required parameter url');
+    }
+    return url;
+};
+
+exports.getPageId = () => {
+    const pageId = argv['page-id'] || process.env.PAGE_ID;
+    if (!pageId) {
+        throw new Error('Missing required parameter page-id');
+    }
+    return pageId;
+};
 
 exports.getRuns = () => argv.runs || process.env.RUNS || 3;
 
@@ -14,4 +28,7 @@ exports.getChromeFlags = () => {
     return param ? param.split(',') : ['--no-sandbox', '--headless', '--incognito'];
 };
 
-exports.getFaunadbKey = () => argv['faunadb-key'] || process.env.FAUNADB_KEY || null;
+exports.getFaunaKey = () => argv['fauna-key'] || process.env.FAUNA_KEY || null;
+
+exports.getFaunaCollectionName = () =>
+    argv['fauna-collection-name'] || process.env.FAUNA_COLLECTION_NAME || 'metrics';
