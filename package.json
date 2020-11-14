@@ -1,6 +1,6 @@
 {
   "name": "lighthouse-fauna",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "NodeJS application that runs lighthouse against a page and saves the results in FaunaDB",
   "main": "src/index.js",
   "preferGlobal": true,
